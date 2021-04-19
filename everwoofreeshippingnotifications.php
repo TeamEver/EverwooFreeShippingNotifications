@@ -1,11 +1,22 @@
 <?php
 /*
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ * 
+ * 
 Plugin URI: https://www.team-ever.com
 Plugin Name: Everwoo Free Shipping Notifications
 Description: Use this plugin for Showing a ‘Add --- more for free shipping’ 
 Version: 1.1.2
 Author: Ever Team
-License: Tous droits réservés / Le droit d'auteur s'applique (All rights reserved / French copyright law applies)
+License: http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 Text Domain: everwoofreeshippingnotifications
 Domain Path:  /languages
 Author URI: https://www.team-ever.com/
@@ -29,6 +40,7 @@ class everwoofreeshippingnotifications
         $plugin->url          = plugin_dir_url(__FILE__);
     }
 }
+
 /**
  * Loads plugin textdomain
  */
@@ -36,6 +48,16 @@ function everwoofreeshippingnotifications_plugins_loaded() {
     load_plugin_textdomain('everwoofreeshippingnotifications', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 }
 add_action('plugins_loaded', 'everwoofreeshippingnotifications_plugins_loaded', 0);
+
+function ever_front_scripts() {
+    if ( ! is_cart() && ! is_checkout() ) { 
+        return;
+    }
+    $ever_css_uri = plugin_dir_url( __FILE__ );
+    wp_enqueue_style( 'ever-style', $ever_css_uri . '/views/front/css/ever-wfsn.css' );
+}
+add_action( 'wp_enqueue_scripts', 'ever_front_scripts' );
+
 function everwoofreeshippingnotifications_add_admin_menu() {
     add_options_page('Everwoo Free Shipping Notifications', 'Everwoo Free Shipping Notifications', 'manage_options', 'ever_wp_everwoofreeshippingnotifications', 'everwoofreeshippingnotifications_options_page');
 }
@@ -76,7 +98,7 @@ function everwoofreeshippingnotifications_settings_init() {
 
     add_settings_field(
         'everwoofreeshippingnotifications_message_before_amount',
-        __('Message before amount', 'everwoofreeshippingnotifications'),
+        __('Message before amount on checkout page', 'everwoofreeshippingnotifications'),
         'everwoofreeshippingnotifications_message_before_amount_render',
         'pluginPage',
         'everwoofreeshippingnotifications_pluginPage_section'
@@ -84,7 +106,7 @@ function everwoofreeshippingnotifications_settings_init() {
 
     add_settings_field(
         'everwoofreeshippingnotifications_message_cart',
-        __('Message after amount', 'everwoofreeshippingnotifications'),
+        __('Message after amount on checkout page', 'everwoofreeshippingnotifications'),
         'everwoofreeshippingnotifications_message_cart_render',
         'pluginPage',
         'everwoofreeshippingnotifications_pluginPage_section'
@@ -139,10 +161,9 @@ function everwoofreeshippingnotifications_options_page() {
     ?>
     <div class="jumbotron">
         <a href="https://www.team-ever.com/contact" target="_blank"><img src="https://www.team-ever.com/wp-content/uploads/2016/08/Logo-full.png" style="float:left;"></a>
-        <h1><?php _e('everwoofreeshippingnotifications settings', 'everwoofreeshippingnotifications'); ?></h1>
+        <h1><?php _e('Ever Woo Free Shipping Notifications Settings', 'everwoofreeshippingnotifications'); ?></h1>
         <p><?php _e('Please set form settings to allow or dissallow everwoofreeshippingnotifications on your WordPress site', 'everwoofreeshippingnotifications'); ?></p>
         <p><a href="https://www.team-ever.com/contact" target="_blank"><?php __('Feel free contact us for support or updates', 'everwoofreeshippingnotifications'); ?></a></p>
-       
         <ul class="everul">
             <li><?php echo dirname(__FILE__); ?>/everwoofreeshippingnotifications/</li>
         </ul>
@@ -160,7 +181,6 @@ function everwoofreeshippingnotifications_options_page() {
         submit_button();
         ?>
     </form>
-
     <?php
     if (class_exists('WooCommerce')) {
         if (isset($_POST['setAmountForFreeShippin']) && check_admin_referer('setAmountForFreeShippin_clicked')) {
@@ -174,11 +194,9 @@ function everSetAmountForFreeShippin() {
 	if ( ! is_cart() && ! is_checkout() ) { 
 		return;
 	}
-
 	$packages = WC()->cart->get_shipping_packages();
 	$package = reset( $packages );
 	$zone = wc_get_shipping_zone( $package );
-
 	$cart_total = WC()->cart->get_displayed_subtotal();
 	if ( WC()->cart->display_prices_including_tax() ) {
 		$cart_total = round( $cart_total - ( WC()->cart->get_discount_total() + WC()->cart->get_discount_tax() ), wc_get_price_decimals() );
