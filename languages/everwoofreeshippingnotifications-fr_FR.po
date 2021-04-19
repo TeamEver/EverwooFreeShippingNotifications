@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ever Woo Btoostore\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-14 10:16+0000\n"
+"PO-Revision-Date: 2020-11-14 10:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: Français\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.4.4; wp-5.5.3"
+
+#: everwoobtoostore.php:109
+msgid "Banned ID categories on product deletion"
+msgstr "ID des catégories bannies pour la suppression"
+
+#: everwoobtoostore.php:87
+msgid "Btoostore file URL"
+msgstr "URL du fichier Btoostore"
+
+#: everwoobtoostore.php:183
+msgid "Btoostore settings"
+msgstr "Réglages Btoostore"
+
+#: everwoobtoostore.php:94
+msgid "Creation mode"
+msgstr "Mode création"
+
+#. Author of the plugin
+msgid "Ever Team"
+msgstr "Team Ever"
+
+#. Name of the plugin
+msgid "Ever Woo Btoostore"
+msgstr "Ever WC Btoostore"
+
+#: everwoobtoostore.php:185
+msgid "Feel free contact us for support or updates"
+msgstr ""
+"N'hésitez pas à nous contacter pour obtenir du support ou des mises à jour"
+
+#. URI of the plugin
+msgid "https://www.team-ever.com"
+msgstr "https://www.team-ever.com/"
+
+#. Author URI of the plugin
+msgid "https://www.team-ever.com/"
+msgstr "https://www.team-ever.com/"
+
+#: everwoobtoostore.php:186
+msgid ""
+"If WooCommerce is installed, you will be able to import Btoostore products "
+"as WooCommerce products."
+msgstr ""
+"Si Woocommerce est installé, vous serez en mesure d'importer des produits "
+"depuis Btoostore"
+
+#: everwoobtoostore.php:102
+msgid "Import Btoostore data as WooCommerce products ?"
+msgstr ""
+"Activer l'import et la mise à jour des données en tant que produits "
+"WooCommerce ?"
+
+#: everwoobtoostore.php:229
+msgid "Import-update Btoostore products as products now"
+msgstr "Importer et mettre à jour les produits depuis Btoostore"
+
+#: everwoobtoostore.php:197
+msgid ""
+"In order to import files from Btoostore manually, please add Btoostore CSV "
+"file on this folder :"
+msgstr ""
+"Si vous désirez importer manuellement des fichiers Btoostore, merci de "
+"mettre le fichier CSV dans ce répertoire sur votre serveur :"
+
+#: everwoobtoostore.php:156
+msgid ""
+"Please add on category ID per line. Products with those categories IDs won't "
+"be deleted"
+msgstr ""
+"Merci d'ajouter un identifiant de catégorie par ligne. Les produits rangés "
+"dans ces catégories seront ignorés lors de la suppression des produits qui "
+"ne sont pas dans les données en provenance de Btoostore"
+
+#: everwoobtoostore.php:173 everwoobtoostore.php:184
+msgid ""
+"Please set form settings to allow or dissallow Btoostore on your WordPress "
+"site"
+msgstr ""
+"Merci de bien configurer ces réglages afin d'activer ou de désactiver les "
+"imports et mises à jour depuis Btoostore"
+
+#: everwoobtoostore.php:190
+msgid "product description (in case of product creation)"
+msgstr "Description du produit (en cas de création)"
+
+#: everwoobtoostore.php:192
+msgid "product ean13"
+msgstr "EAN13 du produit"
+
+#: everwoobtoostore.php:189
+msgid "product name (in case of product creation)"
+msgstr "Nom du produit (en cas de création)"
+
+#: everwoobtoostore.php:194
+msgid "product price with taxes"
+msgstr "Prix du produit"
+
+#: everwoobtoostore.php:196
+msgid ""
+"Products are updated depending EAN13 (depends on Ever WP Btoostore "
+"configuration settings). You will be able to set your own products ean13  by "
+"precising it on each product management pages"
+msgstr ""
+"Les variations sont mises à jour à partir du libellé du produit et de "
+"l'EAN13 de la variation.  Vous serez en mesure de renseigner vos propres "
+"EAN13 en les saisissant directement dans chacune des variations "
+
+#: everwoobtoostore.php:191
+msgid "products variations"
+msgstr "variations des produits"
+
+#: everwoobtoostore.php:61
+msgid "Settings"
+msgstr "Réglages"
+
+#: everwoobtoostore.php:193
+msgid "stock status"
+msgstr "état du stock"
+
+#. Description of the plugin
+msgid "Use this plugin for import datas from Btoostore"
+msgstr ""
+"Utilisez ce plugin pour importer vos données depuis un fichier CSV Btoostore"
+
+#: everwoobtoostore.php:171
+msgid "WooCommerce settings wont work until you install this plugin"
+msgstr "Les réglages ne fonctionneront pas en l'absence du plugin WooCommerce"
+
+#: everwoobtoostore.php:73
+msgid "WordPress & WooCommerce settings"
+msgstr "Réglages WooCommerce"
+
+#: everwoobtoostore.php:80
+msgid "WordPress settings"
+msgstr "Réglages WordPress"
